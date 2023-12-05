@@ -14,6 +14,15 @@ const addProduct = async (req, res) => {
   }
 };
 
+const getProduct = async (req, res) => {
+  try {
+    const product = await ProductModelModel.findOne({ userID: req.params.userID });
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+};
+
 const updateProduct = async (req, res) => {
   try {
     const updatedProduct = await ProductModel.findByIdAndUpdate(
@@ -66,4 +75,4 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-module.exports = { getAllProduct, updateProduct, addProduct,deleteProduct };
+module.exports = { getAllProduct, updateProduct, addProduct,deleteProduct,getProduct };

@@ -6,6 +6,7 @@ const {
   updateProduct,
   getAllProduct,
   deleteProduct,
+  getProduct
 } = require("../controllers/productController");
 
 //admin verification using middlewares
@@ -17,5 +18,6 @@ router.delete("/:id", verifyAdminAuthentication);
 router.post("/add-product", addProduct);
 router.put("/update-product/:id", updateProduct);
 router.get("/getallproduct", getAllProduct);
+router.get("/find/:id", getProduct);
 router.delete("/:id", deleteProduct);
 module.exports = router;
